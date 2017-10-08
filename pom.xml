@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.netradius</groupId>
+    <artifactId>netradius-spring-boot-starters</artifactId>
+    <version>1.5.7.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <name>netradius-spring-boot-starters</name>
+
+    <description>Helpful Spring Boot Starters used in various NetRadius developed projects</description>
+    <url>https://github.com/netradius/netradius-spring-boot-starters</url>
+    <inceptionYear>2017</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:netradius/netradius-spring-boot-starters.git</connection>
+        <developerConnection>scm:git:ssh:git@github.com:netradius/netradius-spring-boot-starters.git</developerConnection>
+        <url>https://github.com/netradius/netradius-spring-boot-starters/tree/master</url>
+    </scm>
+
+    <properties>
+        <!-- Build Settings -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <!-- Plugin Versions - Listed in alphabetical order -->
+        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+
+        <!-- Dependency Versions - Listed in alphabetical order -->
+        <findbugs.version>3.0.1</findbugs.version>
+        <netradius-checkstyle.version>0.0.1</netradius-checkstyle.version>
+        <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
+    </properties>
+
+    <modules>
+        <module>netradius-spring-errors</module>
+        <module>netradius-spring-errors-spring-boot-starter</module>
+        <module>netradius-spring-errors-sample</module>
+    </modules>
+
+    <dependencyManagement>
+        <!-- Dependencies listed in alphabetical order by groupId,artifactId -->
+        <!--
+            Before you add a dependency here, make sure it's not already defined by Spring Boot
+            https://github.com/spring-projects/spring-boot/blob/master/spring-boot-dependencies/pom.xml
+        -->
+        <dependencies>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>findbugs</artifactId>
+                <version>${findbugs.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Plugins listed in alphabetical order by groupId,artifactId -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-checkstyle-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>validate</id>
+                            <phase>validate</phase>
+                            <configuration>
+                                <configLocation>netradius_checks.xml</configLocation>
+                                <encoding>UTF-8</encoding>
+                                <sourceDirectory>${project.basedir}/src/</sourceDirectory>
+                                <consoleOutput>true</consoleOutput>
+                                <failsOnError>true</failsOnError>
+                            </configuration>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.netradius</groupId>
+                            <artifactId>checkstyle-config</artifactId>
+                            <version>${netradius-checkstyle.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${puppycrawl-checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
