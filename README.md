@@ -1,2 +1,4 @@
-# netradius-spring-boot-starters
-Helpful Spring Boot Starters used in various NetRadius developed projects
+# NetRadius Spring Boot Starters
+
+This project consists of several Spring Boot starter projects which provide several useful
+extensions and abstractions.
