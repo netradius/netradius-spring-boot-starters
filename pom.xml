@@ -43,6 +43,7 @@
 
         <!-- Plugin Versions - Listed in alphabetical order -->
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+        <versions-maven-plugin.version>2.5</versions-maven-plugin.version>
 
         <!-- Dependency Versions - Listed in alphabetical order -->
         <findbugs.version>3.0.1</findbugs.version>
@@ -73,6 +74,13 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <!-- Plugins listed in alphabetical order by groupId,artifactId -->
