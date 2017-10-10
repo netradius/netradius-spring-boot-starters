@@ -46,7 +46,7 @@
 
         <!-- Dependency Versions - Listed in alphabetical order -->
         <findbugs.version>3.0.1</findbugs.version>
-        <netradius-checkstyle.version>0.0.1</netradius-checkstyle.version>
+        <netradius-checkstyle.version>0.0.2</netradius-checkstyle.version>
         <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
     </properties>
 
@@ -112,4 +112,16 @@
             </plugins>
         </pluginManagement>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>netradius-releases</id>
+            <name>Netradius Release Repository</name>
+            <url>https://nexus.netradius.net/repository/netradius-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>netradius-snapshots</id>
+            <name>Netradius Snapshots Repository</name>
+            <url>https://nexus.netradius.net/repository/netradius-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
