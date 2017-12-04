@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 /**
  * Thrown when the requesting client lacks sufficient permissions to perform the requested action.
- * This will result un a 403 HTTP status code being sent to the requesting client.
+ * This will result in a 403 HTTP status code being sent to the requesting client.
  *
  * @author Erik R. Jensen
  */
