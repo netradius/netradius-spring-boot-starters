@@ -47,6 +47,8 @@
 
         <!-- Dependency Versions - Listed in alphabetical order -->
         <findbugs.version>3.0.1</findbugs.version>
+        <jose4j.version>0.6.2</jose4j.version>
+        <jjwt.version>0.9.0</jjwt.version>
         <netradius-checkstyle.version>0.0.2</netradius-checkstyle.version>
         <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
     </properties>
@@ -55,6 +57,9 @@
         <module>netradius-spring-errors</module>
         <module>netradius-spring-errors-spring-boot-starter</module>
         <module>netradius-spring-errors-sample</module>
+        <module>netradius-spring-jwt-auth</module>
+        <module>netradius-spring-jwt-auth-spring-boot-starter</module>
+        <module>netradius-spring-jwt-auth-sample</module>
     </modules>
 
     <dependencyManagement>
@@ -69,6 +74,11 @@
                 <artifactId>findbugs</artifactId>
                 <version>${findbugs.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.bitbucket.b_c</groupId>
+                <artifactId>jose4j</artifactId>
+                <version>${jose4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
