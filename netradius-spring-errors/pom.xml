@@ -8,10 +8,10 @@
     <packaging>jar</packaging>
 
     <parent>
-            <groupId>com.netradius</groupId>
-            <artifactId>netradius-spring-boot-starters</artifactId>
-            <version>1.5.8.0</version>
-            <relativePath>..</relativePath>
+        <groupId>com.netradius</groupId>
+        <artifactId>netradius-spring-boot-starters</artifactId>
+        <version>1.5.8.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
 
     <name>netradius-spring-errors</name>
