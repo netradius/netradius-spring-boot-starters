@@ -6,7 +6,7 @@
 
     <groupId>com.netradius</groupId>
     <artifactId>netradius-spring-boot-starters</artifactId>
-    <version>1.5.9.0</version>
+    <version>1.5.9.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
