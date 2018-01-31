@@ -84,4 +84,18 @@ public class SampleControllerTest {
     }
   }
 
+  @Test(expected = ExtendedHttpClientErrorException.class)
+  public void testBadRequest() throws IOException {
+    try {
+      restTemplate.getForEntity(baseUrl + "BadRequest", ExampleMessage.class);
+    } catch (ExtendedHttpClientErrorException x) {
+      assertThat(x.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+      ErrorResponse errorResponse = x.getErrorResponse();
+      assertThat(errorResponse.getError(), equalTo("Bad Request"));
+      assertThat(errorResponse.getMessage(),
+          equalTo("The request was invalid"));
+      throw x;
+    }
+  }
+
 }
