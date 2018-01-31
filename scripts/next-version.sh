@@ -16,7 +16,7 @@ if [[ $VERSION == *"SNAPSHOT"* ]]; then
 else
 	SNAPSHOT=false
 	IFS="." read -a varr <<< "$VERSION"
-	NEWVERSION="${varr[0]}.$((${varr[1]}+1)).${varr[2]}-SNAPSHOT"
+	NEWVERSION="${varr[0]}.${varr[1]}.${varr[2]}.$((${varr[3]}+1))-SNAPSHOT"
 fi
 
 cd ../
