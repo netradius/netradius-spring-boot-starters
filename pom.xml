@@ -40,6 +40,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- Plugin Versions - Listed in alphabetical order -->
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
@@ -47,14 +49,19 @@
 
         <!-- Dependency Versions - Listed in alphabetical order -->
         <findbugs.version>3.0.1</findbugs.version>
+        <java-commons.version>1.2.1</java-commons.version>
         <netradius-checkstyle.version>0.0.2</netradius-checkstyle.version>
         <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
+        <postgresql.version>42.2.1</postgresql.version>
     </properties>
 
     <modules>
         <module>netradius-spring-errors</module>
         <module>netradius-spring-errors-spring-boot-starter</module>
         <module>netradius-spring-errors-sample</module>
+        <module>netradius-spring-tenancy</module>
+        <module>netradius-spring-tenancy-spring-boot-starter</module>
+        <module>netradius-spring-tenancy-sample</module>
     </modules>
 
     <dependencyManagement>
@@ -69,6 +76,16 @@
                 <artifactId>findbugs</artifactId>
                 <version>${findbugs.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.netradius.commons</groupId>
+                <artifactId>java-commons</artifactId>
+                <version>${java-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

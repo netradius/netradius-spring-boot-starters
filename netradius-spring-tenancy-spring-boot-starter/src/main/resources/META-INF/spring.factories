@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.netradius.spring.tenancy.autoconfigure.SpringTenancyAutoConfiguration,\
+com.netradius.spring.tenancy.autoconfigure.SpringFlywayMigrationAutoConfiguration
+

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://127.0.0.1:54320/netradius
+    username: netradius
+    password: Niproof1#difShuj3
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        multiTenancy: SCHEMA
+        tenant_identifier_resolver: com.netradius.spring.tenancy.hibernate.TenantIdentifierResolver
+        multi_tenant_connection_provider: com.netradius.spring.tenancy.hibernate.TenantConnectionProvider
