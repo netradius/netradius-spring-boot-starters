@@ -6,13 +6,13 @@
 
     <groupId>com.netradius</groupId>
     <artifactId>netradius-spring-boot-starters</artifactId>
-    <version>1.5.9.1-SNAPSHOT</version>
+    <version>2.0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-parent</artifactId>
-            <version>1.5.9.RELEASE</version>
+            <version>2.0.0.RELEASE</version>
     </parent>
 
     <name>netradius-spring-boot-starters</name>
@@ -52,7 +52,7 @@
         <java-commons.version>1.2.1</java-commons.version>
         <netradius-checkstyle.version>0.0.2</netradius-checkstyle.version>
         <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
-        <postgresql.version>42.2.1</postgresql.version>
+        <postgresql.version>42.2.2</postgresql.version>
     </properties>
 
     <modules>
