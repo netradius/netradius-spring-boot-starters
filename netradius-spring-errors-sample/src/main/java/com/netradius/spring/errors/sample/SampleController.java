@@ -1,6 +1,7 @@
 package com.netradius.spring.errors.sample;
 
 import com.netradius.spring.errors.exception.ApiException;
+import com.netradius.spring.errors.exception.BadRequestException;
 import com.netradius.spring.errors.exception.ForbiddenException;
 import com.netradius.spring.errors.exception.NotFoundException;
 import com.netradius.spring.errors.exception.NotImplementedException;
@@ -26,6 +27,11 @@ public class SampleController {
   @RequestMapping("/Forbidden")
   public ExampleMessage forbidden() throws ApiException {
     throw new ForbiddenException();
+  }
+
+  @RequestMapping("/BadRequest")
+  public ExampleMessage badRequest() throws ApiException {
+    throw new BadRequestException();
   }
 
 }

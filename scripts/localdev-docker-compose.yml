@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:10.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: netradius
+      POSTGRES_PASSWORD: Niproof1#difShuj3
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - 54320:5432
+volumes:
+  pgdata:

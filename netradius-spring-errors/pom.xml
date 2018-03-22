@@ -8,10 +8,10 @@
     <packaging>jar</packaging>
 
     <parent>
-            <groupId>com.netradius</groupId>
-            <artifactId>netradius-spring-boot-starters</artifactId>
-            <version>1.5.7.1-SNAPSHOT</version>
-            <relativePath>..</relativePath>
+        <groupId>com.netradius</groupId>
+        <artifactId>netradius-spring-boot-starters</artifactId>
+        <version>2.0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
 
     <name>netradius-spring-errors</name>
@@ -23,6 +23,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

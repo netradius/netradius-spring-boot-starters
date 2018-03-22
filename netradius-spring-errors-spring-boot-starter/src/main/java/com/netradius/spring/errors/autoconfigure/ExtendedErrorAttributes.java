@@ -4,7 +4,7 @@ import com.netradius.spring.errors.context.SpringErrorsMessageSource;
 import com.netradius.spring.errors.exception.ApiException;
 import com.netradius.spring.errors.exception.ValidationFailedException;
 import com.netradius.spring.errors.web.ValidationError;
-import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
+import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.WebRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,13 +84,9 @@ public class ExtendedErrorAttributes extends DefaultErrorAttributes {
   }
 
   @Override
-  public Map<String, Object> getErrorAttributes(RequestAttributes requestAttributes,
-      boolean includeStackTrace) {
-
-    Map<String, Object> errorAttributes = super.getErrorAttributes(requestAttributes,
-        includeStackTrace);
-
-    Throwable error = getError(requestAttributes);
+  public Map<String, Object> getErrorAttributes(WebRequest webRequest, boolean includeStackTrace) {
+    Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, includeStackTrace);
+    Throwable error = getError(webRequest);
 
     if (error instanceof ApiException) {
       ApiException apiException = (ApiException)error;
@@ -108,7 +104,7 @@ public class ExtendedErrorAttributes extends DefaultErrorAttributes {
       }
 
       // Change the HTTP status code to match the exception's HTTP status value
-      requestAttributes.setAttribute("javax.servlet.error.status_code", status.value(), 0);
+      webRequest.setAttribute("javax.servlet.error.status_code", status.value(), 0);
     }
 
     return errorAttributes;

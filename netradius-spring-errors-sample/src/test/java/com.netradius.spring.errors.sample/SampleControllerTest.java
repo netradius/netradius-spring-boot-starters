@@ -10,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
@@ -80,6 +80,20 @@ public class SampleControllerTest {
       assertThat(errorResponse.getError(), equalTo("Forbidden"));
       assertThat(errorResponse.getMessage(),
           equalTo("Insufficient permissions to perform the requested action"));
+      throw x;
+    }
+  }
+
+  @Test(expected = ExtendedHttpClientErrorException.class)
+  public void testBadRequest() throws IOException {
+    try {
+      restTemplate.getForEntity(baseUrl + "BadRequest", ExampleMessage.class);
+    } catch (ExtendedHttpClientErrorException x) {
+      assertThat(x.getStatusCode(), equalTo(HttpStatus.BAD_REQUEST));
+      ErrorResponse errorResponse = x.getErrorResponse();
+      assertThat(errorResponse.getError(), equalTo("Bad Request"));
+      assertThat(errorResponse.getMessage(),
+          equalTo("The request was invalid"));
       throw x;
     }
   }
