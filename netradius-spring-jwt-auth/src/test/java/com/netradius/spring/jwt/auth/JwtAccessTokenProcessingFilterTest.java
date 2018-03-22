@@ -1,6 +1,5 @@
 package com.netradius.spring.jwt.auth;
 
-import com.netradius.spring.jwt.auth.jose4j.Jose4jJwtDecoder;
 import org.jose4j.jws.AlgorithmIdentifiers;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.jwt.JwtClaims;
@@ -27,7 +26,7 @@ public class JwtAccessTokenProcessingFilterTest {
 
   @Before
   public void before() throws JoseException {
-    jwtDecoder = new Jose4jJwtDecoder();
+    jwtDecoder = new DefaultJwtDecoder();
     key = JwtHelper.generateHS512Key();
 
     JwtClaims claims = new JwtClaims();

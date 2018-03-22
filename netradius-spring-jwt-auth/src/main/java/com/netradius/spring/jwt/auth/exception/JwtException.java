@@ -1,6 +1,11 @@
-package com.netradius.spring.jwt.auth;
+package com.netradius.spring.jwt.auth.exception;
 
-public class JwtException extends Exception {
+/**
+ * Base class for all JWT related exceptions.
+ *
+ * @author Erik R. Jensen
+ */
+public abstract class JwtException extends Exception {
 
   public JwtException() {}
 

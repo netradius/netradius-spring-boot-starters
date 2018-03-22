@@ -4,6 +4,11 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
+/**
+ * A custom AuthenticationProvider which will verify instances of JwtAccessTokenAuthentication.
+ *
+ * @author Erik R. Jensen
+ */
 public class JwtAccessTokenAuthenticationProvider implements AuthenticationProvider {
 
   protected JwtVerifier jwtVerifier;
@@ -19,6 +24,7 @@ public class JwtAccessTokenAuthenticationProvider implements AuthenticationProvi
           (JwtAccessTokenAuthentication) authentication;
       VerifiedJwt verifiedJwt = jwtVerifier
           .verify(jwtAccessTokenAuthentication.getDecodedJwt().getJwt());
+      // TODO
       return new JwtAccessTokenAuthentication(verifiedJwt);
     }
     return null;

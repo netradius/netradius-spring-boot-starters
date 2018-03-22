@@ -1,5 +1,7 @@
 package com.netradius.spring.jwt.auth;
 
+import com.netradius.spring.jwt.auth.exception.JwtException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Erik R. Jensen
  */
+@Slf4j
 public class JwtAccessTokenAuthenticationProcessingFilter
     extends AbstractAuthenticationProcessingFilter {
 
@@ -85,11 +88,15 @@ public class JwtAccessTokenAuthenticationProcessingFilter
       HttpServletResponse response) throws AuthenticationException {
     String jwt = getJwtFromRequest(request);
     if (jwt != null) {
-
-      DecodedJwt decodedJwt = jwtDecoder.decode(jwt);
-      JwtAccessTokenAuthentication authentication = new JwtAccessTokenAuthentication(decodedJwt);
-
-      return getAuthenticationManager().authenticate(authentication);
+      try {
+        DecodedJwt decodedJwt = jwtDecoder.decode(jwt);
+        JwtAccessTokenAuthentication authentication = new JwtAccessTokenAuthentication(decodedJwt);
+        // The following chain call will call JwtAccessTokenAuthenticationProcessingFilter
+        return getAuthenticationManager().authenticate(authentication);
+      } catch (JwtException.JwtException x) {
+        log.warn("An access token was made available in the request, but could not be decoded: "
+            + x.getMessage());
+      }
     }
     return null;
   }
