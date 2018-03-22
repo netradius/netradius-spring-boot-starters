@@ -24,7 +24,7 @@ public class JwtAccessTokenAuthentication implements Authentication {
   }
 
   public DecodedJwt getDecodedJwt() {
-     return decodedJwt;
+    return decodedJwt;
   }
 
   @Override

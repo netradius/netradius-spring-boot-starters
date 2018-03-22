@@ -43,11 +43,12 @@ public class Jose4jExamples {
   @Test
   public void test() throws JoseException, InvalidJwtException, MalformedClaimException {
     // Example showing how to generate a jwt and then parse a jwt
-    Key key = JwtHelper.generateHS512Key();
 
     JwtClaims claims = new JwtClaims();
     claims.setSubject("Scotty");
     claims.setExpirationTimeMinutesInTheFuture(5);
+
+    Key key = JwtHelper.generateHS512Key();
 
     JsonWebSignature jws = new JsonWebSignature();
     jws.setPayload(claims.toJson());
