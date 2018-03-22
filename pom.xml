@@ -49,12 +49,9 @@
 
         <!-- Dependency Versions - Listed in alphabetical order -->
         <findbugs.version>3.0.1</findbugs.version>
-<<<<<<< HEAD
         <jose4j.version>0.6.2</jose4j.version>
         <jjwt.version>0.9.0</jjwt.version>
-=======
         <java-commons.version>1.2.1</java-commons.version>
->>>>>>> master
         <netradius-checkstyle.version>0.0.2</netradius-checkstyle.version>
         <puppycrawl-checkstyle.version>8.1</puppycrawl-checkstyle.version>
         <postgresql.version>42.2.2</postgresql.version>
@@ -64,15 +61,12 @@
         <module>netradius-spring-errors</module>
         <module>netradius-spring-errors-spring-boot-starter</module>
         <module>netradius-spring-errors-sample</module>
-<<<<<<< HEAD
         <module>netradius-spring-jwt-auth</module>
         <module>netradius-spring-jwt-auth-spring-boot-starter</module>
         <module>netradius-spring-jwt-auth-sample</module>
-=======
         <module>netradius-spring-tenancy</module>
         <module>netradius-spring-tenancy-spring-boot-starter</module>
         <module>netradius-spring-tenancy-sample</module>
->>>>>>> master
     </modules>
 
     <dependencyManagement>
@@ -89,11 +83,11 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-<<<<<<< HEAD
                 <groupId>org.bitbucket.b_c</groupId>
                 <artifactId>jose4j</artifactId>
                 <version>${jose4j.version}</version>
-=======
+            </dependency>
+            <dependency>
                 <groupId>com.netradius.commons</groupId>
                 <artifactId>java-commons</artifactId>
                 <version>${java-commons.version}</version>
@@ -102,7 +96,6 @@
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
->>>>>>> master
             </dependency>
         </dependencies>
     </dependencyManagement>
