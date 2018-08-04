@@ -6,13 +6,13 @@
 
     <groupId>com.netradius</groupId>
     <artifactId>netradius-spring-boot-starters</artifactId>
-    <version>2.0.0.1-SNAPSHOT</version>
+    <version>1.5.14.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.0.0.RELEASE</version>
+            <version>1.5.14.RELEASE</version>
     </parent>
 
     <name>netradius-spring-boot-starters</name>
